@@ -11,7 +11,7 @@ func printSomething(s string, wg *sync.WaitGroup) {
 }
 
 func main(){
-	var wg sync.WaitGroup;
+	var wg sync.WaitGroup
 	words := []string{
 		"alpha",
 		"bravo",

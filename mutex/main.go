@@ -7,14 +7,12 @@ import (
 
 var wg sync.WaitGroup
 
-
 type Income struct {
 	Source string
 	Amount int
 }
 
-
-func main(){
+func main() {
 	// variable for bank balance
 	var balance int
 	var bMutex sync.Mutex
@@ -32,7 +30,7 @@ func main(){
 	wg.Add(len(incomes))
 	// loop through 52 weeks printing out the balance: keep a running total
 	for i, income := range incomes {
-		go func(i int , income Income){
+		go func(i int, income Income) {
 			defer wg.Done()
 			for week := 1; week <= 52; week++ {
 				bMutex.Lock()
@@ -42,9 +40,9 @@ func main(){
 				bMutex.Unlock()
 				fmt.Printf("Week %d: %s: %d.00 \n", week, income.Source, balance)
 			}
-				
+
 		}(i, income)
-		
+
 	}
 	wg.Wait()
 	// print out final balance

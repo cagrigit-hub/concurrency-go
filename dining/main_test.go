@@ -24,9 +24,9 @@ func Test_dineWithVaryingDelays(t *testing.T) {
 		name  string
 		delay time.Duration
 	}{
-		{"zero delay", time.Second * 0},
-		{"quarter second delay", time.Second * 250},
-		{"half second delay", time.Second * 500},
+		{"zero delay", time.Millisecond * 0},
+		{"quarter second delay", time.Millisecond * 250},
+		{"half second delay", time.Millisecond * 500},
 	}
 
 	for _, tt := range theTests {
